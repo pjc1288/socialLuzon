@@ -1,14 +1,18 @@
+import React from 'react'
 
-import Button from './components/buttons';
-import './App.css';
+import { GlobalStyle } from './globalStyles';
+import { Navbar } from './components';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 function App() {
   return (
-    <>
-    <h1>Social Luzón</h1>
-    <Button />
+    <Router>
+      <GlobalStyle />
+    <Navbar />
+{/*     <Switch></Switch> */}
 
-    </>
+
+    </Router>
   );
 }
 
