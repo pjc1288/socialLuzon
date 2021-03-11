@@ -72,10 +72,10 @@ export const Paragraph = styled.p`
 
     ${props => props.primary && css`
         color: ${colors.primary};
-    `}
+    `}    padding: 0 60px;
 
     ${props => props.secondary && css`
-        color: ${colors.secundary};
+        color: ${colors.secondary};
     `}
 
     ${props => props.white && css`

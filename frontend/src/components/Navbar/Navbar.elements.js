@@ -44,7 +44,7 @@ export const MobileIcon = styled.div`
       top: 0;
       right: 0;
       transform: translate(-100%, 60%);
-      color: ${colors.secundary};
+      color: ${colors.secondary};
       font-size: 1.8rem;
       cursor: pointer;
   }
@@ -113,7 +113,7 @@ export const NavLinks = styled(Link)`
     display: table;
     &:hover {
         font-size: 24px;
-      background-color: #F5857A;
+      background-color: ${colors.secondary};
       transition: all 0.3s ease;
     }
   }
