@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {FaBars, FaHandPointLeft, FaTimes} from 'react-icons/fa'
-import {Paragraph} from '../../globalStyles'
+import {Paragraph, Buttons} from '../../globalStyles'
 import { Nav, 
         NavbarContainer, 
         NavLogo, 
@@ -41,6 +41,9 @@ const Navbar = () => {
             
         </NavbarContainer>
         </Nav>
+        <Buttons dark big>Boton</Buttons>
+        <Buttons outline medium>Boton</Buttons>
+ 
         </>
 
      );

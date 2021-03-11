@@ -14,7 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 export const colors = {
     primary: '#379C4F',
     primaryLight: '#9CCF54',
-    secundary: '#F5857A',
+    secondary: '#F5857A',
     secondaryLight: '#FFAA99',
     error: '#F03D3E',
     alert: '#FCB057',
@@ -86,17 +86,14 @@ export const Paragraph = styled.p`
     color: ${colors.grey3};
     `}
 
-    ${props => props.grey && css`
-    color: ${colors.grey3};
+    ${props => props.gray && css`
+    color: ${colors.gray3};
     `}
 
     ${props => props.disable && css`
     color: ${colors.grey2};
     `}
 `;
-
-
-
 
 
 
@@ -114,10 +111,52 @@ padding-left: 50px;
     padding-left: 30px;
 }
 `
-export const Button = styled.button`
-border-radius:4px;
-background: ${({primary})=> (primary)}
+export const Buttons = styled.button`
+    font-weight: bold;
+    line-height: 20px;
+    height: 48px;
+    border-radius: 40px;
+    margin: 0 24px;
+    cursor: pointer;
+
+    ${props => props.contained && css`
+    background-color: ${colors.secondaryLight};
+    border: 2px solid ${colors.secondary};
+    color: ${colors.white};
+    `}
+
+    ${props => props.outline && css`
+    color: ${colors.secondary};
+    background-color: transparent;
+    border: 2px solid ${colors.secondary};
+    `}
+
+    ${props => props.gray && css`
+    background-color: ${colors.gray3};
+    border: 0px;
+    color: ${colors.white};
+    `}
+
+    ${props => props.dark && css`
+    background-color: ${colors.gray4};
+    border: 0px;
+    color: ${colors.white};
+    `}
+
+    ${props => props.small && css`
+    padding: 0 60px;
+    `}
+    ${props => props.medium && css`
+    padding: 0 100px;
+    `}
+    ${props => props.big && css`
+    padding: 0 140px;
+    `}
+
+    
 `
+
+
 
 
 
