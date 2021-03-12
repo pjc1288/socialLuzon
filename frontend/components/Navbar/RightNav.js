@@ -23,8 +23,8 @@ const RightNav = ({ open }) => {
             </NavItem>
 
             <NavItem>
-              <Link href='/signout'>
-                <NavLinks>Sign Out</NavLinks>
+              <Link href='/signup'>
+                <NavLinks>Sign Up</NavLinks>
               </Link>
             </NavItem>
 
