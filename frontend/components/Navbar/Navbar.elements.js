@@ -1,18 +1,18 @@
 import styled from 'styled-components'
-import {Container} from '../../globalStyles'
 import {FaMagento} from 'react-icons/fa'
-import {colors} from '../../globalStyles'
-import {Link} from 'react-router-dom'
+import {colors, Container} from '../../styles/globalStyles'
+
 
 
 export const Nav = styled.nav`
-background: ${colors.primaryLight};
-height: 80px;
-justify-content: center;
-align-items: center;
-font-size: 1.2rem;
-position: sticky;
-z-index: 999;
+    background: transparent;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    position: sticky;
+    box-shadow: 0px 10px 10px -6px ${colors.gray3};
+    z-index: 999;
 `;
 
 export const NavbarContainer = styled(Container)`
@@ -22,7 +22,7 @@ export const NavbarContainer = styled(Container)`
   ${Container}
 `;
 
-export const NavLogo = styled(Link)`
+export const NavLogo = styled.div`
   color: #fff;
   justify-self: flex-start;
   cursor: pointer;
@@ -73,7 +73,7 @@ export const NavItem = styled.li`
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    border-bottom: 2px solid ${colors.secondary};
   }
   @media screen and (max-width: 960px) {
     width: 100%;
@@ -83,38 +83,33 @@ export const NavItem = styled.li`
   }
 `;
 
-export const NavItemBtn = styled.li`
-  @media screen and (max-width: 960px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 120px;
-  }
-`;
 
-export const NavLinks = styled(Link)`
+
+export const StyledLink = styled.a`
   font-family: Poppins;
-  color: ${colors.white};
+  color: ${colors.secondary};
   font-style: normal;
   font-weight: bold;
-  font-size: 22px;
+  font-size: 15px;
   line-height: 33px;
-  text-transform: uppercase;
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0.8rem;
   height: 100%;
   @media screen and (max-width: 960px) {
+    text-transform: uppercase;
+    color: ${colors.white};
     text-align: center;
+    font-size: 22px;
     padding: 2rem;
     width: 100%;
     display: table;
     &:hover {
-        font-size: 24px;
+    font-size: 24px;
       background-color: ${colors.secondary};
       transition: all 0.3s ease;
     }
   }
 `;
+
