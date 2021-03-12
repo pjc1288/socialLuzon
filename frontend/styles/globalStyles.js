@@ -50,11 +50,8 @@ export const Title2 = styled.h2`
     color: ${colors.black};
 
     ${props => props.white && css`
-        color: ${colors.white}
+        color: #FFFFFFFF
     `}
-    ${props => props.primary && css`
-        color: ${colors.primary};
-    `} 
 `;
 
 export const Paragraph = styled.p`
@@ -75,7 +72,7 @@ export const Paragraph = styled.p`
 
     ${props => props.primary && css`
         color: ${colors.primary};
-    `}   
+    `}    padding: 0 60px;
 
     ${props => props.secondary && css`
         color: ${colors.secondary};
@@ -106,6 +103,8 @@ width:100%;
 max-width: 1300px;
 margin-right: auto;
 margin-left: auto;
+padding-right: 50px;
+padding-left: 50px;
 
 @media screen and (max-width: 991px){
     padding-right: 30px;
@@ -153,4 +152,11 @@ export const Buttons = styled.button`
     ${props => props.big && css`
     padding: 0 140px;
     `}
+
+    
 `
+
+
+
+
+

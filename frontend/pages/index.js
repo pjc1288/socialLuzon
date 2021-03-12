@@ -1,23 +1,13 @@
 import Head from 'next/head';
 import styled from 'styled-components';
 import Image from 'next/image'
-import {colors} from '../styles/globalStyles'
+import {colors, Title2} from '../styles/globalStyles'
+import {APP_NAME} from '../config'
+import Navbar from '../components/Navbar/Navbar';
 
 
 
-const Hero = styled.div`
-  height: 90vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-`;
 
-const Heading = styled.h1`
-  color: ${colors.secondary};
-  font-size: 10rem;
-  font-weight: 900;
-`;
 
 export default function Home() {
   return (
@@ -25,11 +15,11 @@ export default function Home() {
       <Head>
         <title>Home</title>
         <link rel='icon' href='/favicon.ico' />
+        
+        
       </Head>
+        <Title2>{APP_NAME}</Title2>
 
-      <Hero>
-        <Heading>Social Luzón</Heading>
-      </Hero>
     </>
   );
 }
