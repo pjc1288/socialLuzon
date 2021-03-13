@@ -66,6 +66,7 @@ export const NavLinks = styled.a`
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
+  cursor: pointer;
   @media (max-width: 768px) {
     color: ${colors.white};
     text-align: center;

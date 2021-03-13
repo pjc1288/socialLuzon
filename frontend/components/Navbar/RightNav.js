@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {colors, Container} from '../../styles/globalStyles'
 import Link from 'next/link';
+import Router from 'next/router'
+import {signout, isAuth} from '../actions/auth'
 import {Ul, NavItem, NavLinks} from './Navbar.elements'
 
 
@@ -16,6 +18,8 @@ const RightNav = ({ open }) => {
               </Link>
             </NavItem>
 
+            {!isAuth() && (
+              <>
             <NavItem>
               <Link href='/signin'>
                 <NavLinks>Sign In</NavLinks>
@@ -27,6 +31,16 @@ const RightNav = ({ open }) => {
                 <NavLinks>Sign Up</NavLinks>
               </Link>
             </NavItem>
+            </>
+            )}
+
+            {isAuth() && (
+            <NavItem>
+              <Link href='/signin'>
+                <NavLinks onClick={() => signout(() => Router.replace(`/signin`))}>Log out</NavLinks>
+              </Link>
+            </NavItem>
+            )}
 
     </Ul>
   )

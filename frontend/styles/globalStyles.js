@@ -152,9 +152,9 @@ export const Buttons = styled.button`
     ${props => props.big && css`
     padding: 0 140px;
     `}
-
-    
 `
+
+
 
 
 
