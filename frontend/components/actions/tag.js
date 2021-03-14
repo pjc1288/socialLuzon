@@ -50,4 +50,4 @@ export const removeTag = (slug, token) => {
             return response.json();
         })
         .catch(err => console.log(err));
-};;
+};

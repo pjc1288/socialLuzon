@@ -117,13 +117,14 @@ const Category = () => {
     );
 
 
-    return <>{showSuccess()}
+    return (<>
+    {showSuccess()}
     {showError()}
     {showRemoved()}
     <div onMouseMove={mouseMoveHandler}>
         {newCategoryFom()}
         {showCategories()}
-    </div></>;
+    </div></>);
 };
 
 export default Category;
