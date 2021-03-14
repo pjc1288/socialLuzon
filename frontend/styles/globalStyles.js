@@ -25,8 +25,16 @@ export const colors = {
     gray2: '##DDE2E5',
     gray3: '#ACB5BD',
     gray4: '#495057',
+    gradient: 'linear-gradient(254.41deg, #5BAC4C 8.66%, rgba(156, 207, 84, 0.35) 103.52%)'
 }
 
+export const Line = styled.div`
+  border-bottom:solid 4px ${colors.secondary};
+  border-radius: 3px;
+  width:10%;
+  margin-top:-5px;
+  margin-bottom:10px;
+`;
 
 export const Title = styled.h1`
     font-family: Poppins;
@@ -45,7 +53,7 @@ export const Title2 = styled.h2`
     font-family: Poppins;
     font-style: normal;
     font-weight: bold;
-    font-size: 0.85em;
+    font-size: 0.95em;
     line-height: 65px;
     color: ${colors.black};
 
@@ -58,8 +66,8 @@ export const Paragraph = styled.p`
     font-family: Poppins;
     font-style: normal;
     font-weight: normal;
-    font-size: 0.5em;
-    line-height: 24px;
+    font-size: 0.8em;
+    line-height: 25px;
     color: ${colors.black};
 
     ${props => props.medium && css`
@@ -97,7 +105,7 @@ export const Paragraph = styled.p`
 
 
 
-export const Container =styled.div`
+/* export const Container =styled.div`
 z-index:1;
 width:100%;
 max-width: 1300px;
@@ -110,7 +118,7 @@ padding-left: 50px;
     padding-right: 30px;
     padding-left: 30px;
 }
-`
+` */
 export const Buttons = styled.button`
     font-weight: bold;
     line-height: 20px;
@@ -125,11 +133,18 @@ export const Buttons = styled.button`
     color: ${colors.white};
     `}
 
-    ${props => props.outline && css`
+    ${props => props.outlineSecondary && css`
     color: ${colors.secondary};
     background-color: transparent;
     border: 2px solid ${colors.secondary};
     `}
+
+    ${props => props.outlineGrey && css`
+    color: ${colors.grey4};
+    background-color: transparent;
+    border: 2px solid ${colors.grey4};
+    `}
+
 
     ${props => props.gray && css`
     background-color: ${colors.gray3};
@@ -156,7 +171,39 @@ export const Buttons = styled.button`
 
 
 
+export const Container = styled.div`
+  z-index: 1;
+  width: 100%;
+  max-width: 1300px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: 50px;
+  padding-left: 50px;
+  @media screen and (max-width: 991px) {
+    padding-right: 30px;
+    padding-left: 30px;
+  }
+`;
 
+export const Button = styled.button`
+  border-radius: 4px;
+  background: ${({ primary }) => (primary ? '#4B59F7' : '#0467FB')};
+  white-space: nowrap;
+  padding: ${({ big }) => (big ? '12px 64px' : '10px 20px')};
+  color: #fff;
+  font-size: ${({ fontBig }) => (fontBig ? '20px' : '16px')};
+  outline: none;
+  border: none;
+  cursor: pointer;
+  &:hover {
+    transition: all 0.3s ease-out;
+    background: #fff;
+    background-color: ${({ primary }) => (primary ? '#0467FB' : '#4B59F7')};
+  }
+  @media screen and (max-width: 960px) {
+    width: 100%;
+  }
+`;
 
 
 
