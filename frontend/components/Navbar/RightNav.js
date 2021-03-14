@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import {colors, Container} from '../../styles/globalStyles'
+import NProgress from 'nprogress';
 import Link from 'next/link';
 import Router from 'next/router'
 import {signout, isAuth} from '../actions/auth'
 import {Ul, NavItem, NavLinks} from './Navbar.elements'
 
-
+Router.onRouteChangeStart = url => NProgress.start();
+Router.onRouteChangeComplete = url => NProgress.done();
+Router.onRouteChangeError = url => NProgress.done();
 
 
 const RightNav = ({ open }) => {
