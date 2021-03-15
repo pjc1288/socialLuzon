@@ -21,29 +21,26 @@ const RightNav = ({ open }) => {
               </Link>
             </NavItem>
 
-
-
             {!isAuth() && (
               <>
             <NavItem>
               <Link href='/signin'>
-                <NavLinks>Sign In</NavLinks>
+                <NavLinks>Iniciar Sesión</NavLinks>
               </Link>
             </NavItem>
 
             <NavItem>
               <Link href='/signup'>
-                <NavLinks>Sign Up</NavLinks>
+                <NavLinks>Únete</NavLinks>
               </Link>
             </NavItem>
             </>
             )}
 
-
             {isAuth() && isAuth().role === 0 && (
               <NavItem>
                 <Link href="/user">
-                  <NavLinks>{`${isAuth().name}'s Dashboard`}</NavLinks>
+                  <NavLinks>{`Hola ${isAuth().name}`}</NavLinks>
                 </Link>
               </NavItem>
             )}
@@ -52,17 +49,15 @@ const RightNav = ({ open }) => {
             {isAuth() && isAuth().role === 1 && (
               <NavItem>
                 <Link href="/admin">
-                  <NavLinks>{`${isAuth().name}'s Dashboard`}</NavLinks>
+                  <NavLinks>{`Hola ${isAuth().name}`}</NavLinks>
                 </Link>
               </NavItem>
             )}
 
-
-
           {isAuth() && (
               <NavItem>
                 <NavLinks style={{ cursor: 'pointer' }} onClick={() => signout(() => Router.replace(`/signin`))}>
-                  Signout
+                  Salir
                 </NavLinks>
               </NavItem>
             )}

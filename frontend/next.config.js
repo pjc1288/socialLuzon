@@ -5,9 +5,3 @@ module.exports = {
         PROCUCTION: false
     }
 }
-
-module.exports = {
-    images: {
-      domains: ['assets.vercel.com'],
-    },
-  }

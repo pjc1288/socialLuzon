@@ -71,16 +71,30 @@ export const Paragraph = styled.p`
     color: ${colors.black};
 
     ${props => props.medium && css`
-    font-size: 0.43em;
+    font-size: 0.8em;
+    `}
+    ${props => props.lessMargin && css`
+    margin: -20px;
+    `}
+    ${props => props.lessMarginTop && css`
+    margin-top: -50px;
+    `}
+
+    ${props => props.big && css`
+    font-size: 1em;
     `}
 
     ${props => props.small && css`
-    font-size: 0.38em;
+    font-size: 0.6em;
     `}
 
     ${props => props.primary && css`
         color: ${colors.primary};
-    `}    padding: 0 60px;
+    `} 
+
+    ${props => props.primaryLight && css`
+        color: ${colors.primaryLight};
+    `}   
 
     ${props => props.secondary && css`
         color: ${colors.secondary};
@@ -104,21 +118,6 @@ export const Paragraph = styled.p`
 `;
 
 
-
-/* export const Container =styled.div`
-z-index:1;
-width:100%;
-max-width: 1300px;
-margin-right: auto;
-margin-left: auto;
-padding-right: 50px;
-padding-left: 50px;
-
-@media screen and (max-width: 991px){
-    padding-right: 30px;
-    padding-left: 30px;
-}
-` */
 export const Buttons = styled.button`
     font-weight: bold;
     line-height: 20px;
@@ -205,5 +204,24 @@ export const Button = styled.button`
   }
 `;
 
+
+export const InputForm = styled.input`
+  color: ${colors.gray4};
+	border: 2px ${colors.gray4};
+  font-size: 1.2rem;
+	margin: 20px auto;
+  padding: 1.5rem 2rem;
+  border-radius: 0.2rem;
+  background-color: transparent;
+  border: 1px solid #ACB5BD;
+	border-radius: 10px;
+  width: 38%;
+  display: block;
+  transition: all 0.3s;
+  @media screen and (max-width: 960px) {
+    width: 80%;
+  }
+
+`;
 
 

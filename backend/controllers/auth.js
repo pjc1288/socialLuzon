@@ -10,7 +10,7 @@ exports.signup = (req, res) => {
     User.findOne({ email: req.body.email }).exec((err, user) => {
         if (user) {
             return res.status(400).json({
-                error: 'Email is taken'
+                error: 'Email ya registrado'
             });
         }
 
@@ -29,7 +29,7 @@ exports.signup = (req, res) => {
             //     user: success
             // });
             res.json({
-                message: 'Signup success! Please signin.'
+                message: 'Registro completado. Por favor, accede.'
             });
         });
     });
@@ -41,13 +41,13 @@ exports.signin = (req, res) => {
     User.findOne({ email }).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User with that email does not exist. Please signup.'
+                error: 'No hay ningún usuario registrado con ese email.'
             });
         }
         // authenticate
         if (!user.authenticate(password)) {
             return res.status(400).json({
-                error: 'Email and password do not match.'
+                error: 'Email y contraseña no coinciden.'
             });
         }
         // generate a token and send to client
@@ -65,7 +65,7 @@ exports.signin = (req, res) => {
 exports.signout = (req, res) => {
     res.clearCookie('token');
     res.json({
-        message: 'Signout success'
+        message: 'Desconectado'
     });
 };
 
@@ -80,7 +80,7 @@ exports.authMiddleware = (req, res, next) => {
     User.findById({ _id: authUserId }).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User not found'
+                error: 'Usuario no encontrado'
             });
         }
         req.profile = user;
@@ -93,13 +93,13 @@ exports.adminMiddleware = (req, res, next) => {
     User.findById({ _id: adminUserId }).exec((err, user) => {
         if (err || !user) {
             return res.status(400).json({
-                error: 'User not found'
+                error: 'Usuario no encontrado'
             });
         }
 
         if (user.role !== 1) {
             return res.status(400).json({
-                error: 'Admin resource. Access denied'
+                error: 'No eres administrador de Social Luzon'
             });
         }
 

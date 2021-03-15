@@ -10,6 +10,7 @@ import { createBlog } from '../actions/blog';
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
 import '../../node_modules/react-quill/dist/quill.snow.css';
 import { QuillModules, QuillFormats } from '../../helpers/quill';
+import { Button, Buttons } from '../../styles/globalStyles';
 
 const CreateBlog = ({ router }) => {
     const blogFromLS = () => {
@@ -172,7 +173,7 @@ const CreateBlog = ({ router }) => {
         return (
             <form onSubmit={publishBlog}>
                 <div className="form-group">
-                    <label className="text-muted">Title</label>
+                    <label className="text-muted">Título</label>
                     <input type="text" className="form-control" value={title} onChange={handleChange('title')} />
                 </div>
 
@@ -180,16 +181,17 @@ const CreateBlog = ({ router }) => {
                     <ReactQuill
                         modules={QuillModules}
                         formats={QuillFormats}
+                        style={{margin:'100'}}
                         value={body}
-                        placeholder="Write something amazing..."
+                        placeholder="Escribe aquí tu contenido"
                         onChange={handleBody}
                     />
                 </div>
 
                 <div>
-                    <button type="submit" className="btn btn-primary">
-                        Publish
-                    </button>
+                    <Buttons type="submit" contained medium>
+                        Publicar
+                    </Buttons>
                 </div>
             </form>
         );
@@ -209,18 +211,20 @@ const CreateBlog = ({ router }) => {
                 <div className="col-md-4">
                     <div>
                         <div className="form-group pb-2">
-                            <h5>Featured image</h5>
+                            <h5>Imagen destacada</h5>
                             <hr />
 
                             <small className="text-muted">Max size: 1mb</small>
-                            <label className="btn btn-outline-info">
-                                Upload featured image
+                            <Buttons outlineGrey small>
+                            <label className="btn">
+                                Imagen destacada
                                 <input onChange={handleChange('photo')} type="file" accept="image/*" hidden />
                             </label>
+                            </Buttons>
                         </div>
                     </div>
                     <div>
-                        <h5>Categories</h5>
+                        <h5>Categorías</h5>
                         <hr />
 
                         <ul style={{ maxHeight: '200px', overflowY: 'scroll' }}>{showCategories()}</ul>

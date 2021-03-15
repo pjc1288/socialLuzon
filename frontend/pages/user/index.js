@@ -4,7 +4,7 @@ import Link from 'next/link';
 const UserIndex = () => {
     return (
             <Private>
-                <h2>User Dashboard</h2>
+                <h2>Panel Control usuario</h2>
             </Private>
     );
 };

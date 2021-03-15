@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { signin, authenticate, isAuth } from '../actions/auth';
 
 import Router from 'next/router';
+import { Buttons, InputForm, Paragraph } from '../../styles/globalStyles';
 
 const SigninComponent = () => {
     const [values, setValues] = useState({
@@ -55,31 +56,35 @@ const SigninComponent = () => {
 
     const signinForm = () => {
         return (
+            <>
+            <Paragraph big lessMargin className="text-center pt-4 pb-4"> Inicie Sesión para continuar.</Paragraph>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <input
+                    <InputForm
                         value={email}
                         onChange={handleChange('email')}
                         type="email"
                         className="form-control"
-                        placeholder="Type your email"
-                    />
+                        placeholder="Email"
+                    ></InputForm>
                 </div>
 
                 <div>
-                    <input
+                    <InputForm
                         value={password}
                         onChange={handleChange('password')}
                         type="password"
                         className="form-control"
-                        placeholder="Type your password"
-                    />
+                        placeholder="Contraseña"
+                        ></InputForm>
                 </div>
-
-                <div>
-                    <button>Sign In</button>
+                <Paragraph big lessMargin primaryLight className="text-center pt-4 pb-4"> ¿Has olvidado tu contraseña?</Paragraph>
+                <div style={{textAlign: 'center', margin:'40px 0px'}}>
+                    <Buttons  medium contained>Iniciar Sesión</Buttons>
                 </div>
             </form>
+
+            </>
         );
     };
 

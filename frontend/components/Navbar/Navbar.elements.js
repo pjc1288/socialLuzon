@@ -4,6 +4,7 @@ import {colors} from '../../styles/globalStyles'
 
 
 export const Nav = styled.nav`
+
   width: 100%;
   height: 80px;
   border-bottom: 2px solid #f1f1f1;
@@ -17,6 +18,7 @@ export const Nav = styled.nav`
 `
 
 export const Ul = styled.ul`
+z-index: 10;
   list-style: none;
   display: flex;
   flex-flow: row nowrap;
@@ -41,10 +43,11 @@ export const Ul = styled.ul`
 `;
 
 export const NavItem = styled.li`
+  color:${colors.secondary};
   height: 80px;
   border-bottom: 2px solid transparent;
   &:hover {
-    border-bottom: 2px solid #4b59f7;
+    border-bottom: 2px solid ${colors.secondary};
   }
   @media (max-width: 768px) {
     width: 100%;
@@ -74,7 +77,7 @@ export const NavLinks = styled.a`
     width: 100%;
     display: table;
     &:hover {
-        font-size: 20px;
+      font-size: 20px;
       background-color: ${colors.secondary};
       transition: all 0.3s ease;
     }
