@@ -1,12 +1,31 @@
-import Head from 'next/head';
+
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { API, APP_NAME} from '../../config';
-import { singleBlog } from '../../components/actions/blog';
+import { singleBlog, listRelated } from '../../components/actions/blog';
+import SmallCard from '../../components/blog/SmallCard';
 import renderHTML from 'react-render-html';
 import moment from 'moment';
 
-const SingleBlog = ({ blog }) => {
+const SingleBlog = ({ blog, query }) => {
+    const [related, setRelated] = useState([]);
+
+    const loadRelated = () => {
+        listRelated({ blog }).then(data => {
+            if (data.error) {
+                console.log(data.error);
+            } else {
+                setRelated(data);
+            }
+        });
+    };
+
+
+    useEffect(() => {
+        loadRelated();
+      }, [query]);
+
+
     const showBlogCategories = blog =>
         blog.categories.map((c, i) => (
             <Link key={i} href={`/categories/${c.slug}`}>
@@ -21,8 +40,19 @@ const SingleBlog = ({ blog }) => {
             </Link>
         ));
 
+    const showRelatedBlog = () => {
+        return related.map((blog, i) => (
+            <div className="col-md-4" key={i}>
+                <article>
+                    <SmallCard blog={blog} />
+                </article>
+            </div>
+        ));
+    };
+
     return (
         <>
+
 
                 <main>
                     <article>
@@ -38,15 +68,18 @@ const SingleBlog = ({ blog }) => {
                             </section>
 
                             <section>
-                                <p className="lead mt-3 mark">
-                                    Written by {blog.postedBy.name} | Published {moment(blog.updatedAt).fromNow()}
-                                </p>
+                                <div className="container">
+                                    <h1 className="display-2 pb-3 pt-3 text-center font-weight-bold">{blog.title}</h1>
+                                    <p className="lead mt-3 mark">
+                                        Written by {blog.postedBy.name} | Published {moment(blog.updatedAt).fromNow()}
+                                    </p>
 
-                                <div className="pb-3">
-                                    {showBlogCategories(blog)}
-                                    {showBlogTags(blog)}
-                                    <br />
-                                    <br />
+                                    <div className="pb-3">
+                                        {showBlogCategories(blog)}
+                                        {showBlogTags(blog)}
+                                        <br />
+                                        <br />
+                                    </div>
                                 </div>
                             </section>
                         </div>
@@ -59,8 +92,7 @@ const SingleBlog = ({ blog }) => {
 
                         <div className="container">
                             <h4 className="text-center pt-5 pb-5 h2">Related blogs</h4>
-                            <hr />
-                            <p>show related blogs</p>
+                            <div className="row">{showRelatedBlog()}</div>
                         </div>
 
                         <div className="container pb-5">
@@ -68,7 +100,7 @@ const SingleBlog = ({ blog }) => {
                         </div>
                     </article>
                 </main>
-
+     
         </>
     );
 };
@@ -79,7 +111,7 @@ SingleBlog.getInitialProps = ({ query }) => {
             console.log(data.error);
         } else {
             // console.log('GET INITIAL PROPS IN SINGLE BLOG', data);
-            return { blog: data };
+            return { blog: data, query };
         }
     });
 };

@@ -16,7 +16,3 @@ router.get('/blog/photo/:slug', photo);
 router.post('/blogs/related', listRelated);
 
 module.exports = router;
-
-
-
-module.exports = router;
