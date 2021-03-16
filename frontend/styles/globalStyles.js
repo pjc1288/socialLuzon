@@ -210,12 +210,12 @@ export const InputForm = styled.input`
 	border: 2px ${colors.gray4};
   font-size: 1.2rem;
 	margin: 20px auto;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 1rem;
   border-radius: 0.2rem;
   background-color: transparent;
   border: 1px solid #ACB5BD;
 	border-radius: 10px;
-  width: 38%;
+  width: 50%;
   display: block;
   transition: all 0.3s;
   @media screen and (max-width: 960px) {

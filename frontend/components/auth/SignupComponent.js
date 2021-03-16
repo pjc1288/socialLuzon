@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { signup, isAuth } from '../actions/auth';
 import Router from 'next/router';
+import { Buttons, InputForm } from '../../styles/globalStyles';
 
 const SignupComponent = () => {
     const [values, setValues] = useState({
@@ -54,35 +55,35 @@ const SignupComponent = () => {
     const signupForm = () => {
         return (
             <form onSubmit={handleSubmit}>
-                <div>
-                    <input
+               
+                    <InputForm
                         value={name}
                         onChange={handleChange('name')}
                         type="text"
-                        placeholder="Type your name"
-                    />
-                </div>
+                        placeholder="Nombre"
+                    ></InputForm>
+           
 
-                <div>
-                    <input
+               
+                    <InputForm
                         value={email}
                         onChange={handleChange('email')}
                         type="email"
-                        placeholder="Type your email"
-                    />
-                </div>
+                        placeholder="Email"
+                    ></InputForm>
+               
 
-                <div>
-                    <input
+               
+                    <InputForm
                         value={password}
                         onChange={handleChange('password')}
                         type="password"
-                        placeholder="Type your password"
-                    />
-                </div>
+                        placeholder="Contraseña"
+                    ></InputForm>
+                
 
-                <div>
-                    <button>Signup</button>
+                <div style={{textAlign: 'center', margin:'40px 0px'}}>
+                    <Buttons medium contained>Regístrarte</Buttons>
                 </div>
             </form>
         );

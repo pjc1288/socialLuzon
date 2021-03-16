@@ -13,8 +13,8 @@ const Navbar = () => {
     <Nav>
     <div style={{ position: 'relative', width: '200px', height: '80px' }}>
       <Image
-        alt="Mountains"
-        src="/logo.png"
+        alt="Logo"
+        src="/logo.svg"
         layout="fill"
         objectFit="contain"
       />

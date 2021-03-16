@@ -59,7 +59,7 @@ const SigninComponent = () => {
             <>
             <Paragraph big lessMargin className="text-center pt-4 pb-4"> Inicie Sesión para continuar.</Paragraph>
             <form onSubmit={handleSubmit}>
-                <div>
+                
                     <InputForm
                         value={email}
                         onChange={handleChange('email')}
@@ -67,9 +67,9 @@ const SigninComponent = () => {
                         className="form-control"
                         placeholder="Email"
                     ></InputForm>
-                </div>
+                
 
-                <div>
+                
                     <InputForm
                         value={password}
                         onChange={handleChange('password')}
@@ -77,7 +77,7 @@ const SigninComponent = () => {
                         className="form-control"
                         placeholder="Contraseña"
                         ></InputForm>
-                </div>
+               
                 <Paragraph big lessMargin primaryLight className="text-center pt-4 pb-4"> ¿Has olvidado tu contraseña?</Paragraph>
                 <div style={{textAlign: 'center', margin:'40px 0px'}}>
                     <Buttons  medium contained>Iniciar Sesión</Buttons>
