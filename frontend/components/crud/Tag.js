@@ -82,7 +82,7 @@ const Tag = () => {
 
     const showSuccess = () => {
         if (success) {
-            return <p className="text-success">Tag is created</p>;
+            return <p className="text-success">Tag fue creado</p>;
         }
     };
 

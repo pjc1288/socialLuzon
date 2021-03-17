@@ -82,7 +82,7 @@ const Category = () => {
 
     const showSuccess = () => {
         if (success) {
-            return <p className="text-success">Category is created</p>;
+            return <p className="text-success">Category fue creado</p>;
         }
     };
 

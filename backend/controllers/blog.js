@@ -258,7 +258,7 @@ exports.listRelated = (req, res) => {
 
     Blog.find({ _id: { $ne: _id }, categories: { $in: categories } })
         .limit(limit)
-        .populate('postedBy', '_id name profile')
+        .populate('postedBy', '_id name username profile')
         .select('title slug excerpt postedBy createdAt updatedAt')
         .exec((err, blogs) => {
             if (err) {
@@ -268,4 +268,23 @@ exports.listRelated = (req, res) => {
             }
             res.json(blogs);
         });
+};
+
+exports.listSearch = (req, res) => {
+    const { search } = req.query;
+    if (search) {
+        Blog.find(
+            {
+                $or: [{ title: { $regex: search, $options: 'i' } }, { body: { $regex: search, $options: 'i' } }]
+            },
+            (err, blogs) => {
+                if (err) {
+                    return res.status(400).json({
+                        error: errorHandler(err)
+                    });
+                }
+                res.json(blogs);
+            }
+        ).select('-photo -body');
+    }
 };

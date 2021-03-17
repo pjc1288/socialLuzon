@@ -12,7 +12,7 @@ const Signin = () => {
                     <SigninComponent />
 
                     <Paragraph medium lessMargin className="text-center pt-4 pb-4"> 
-                    ¿Eres nuevo En solcial Luzon?</Paragraph>
+                    ¿Eres nuevo En social Luzon?</Paragraph>
                     <Link href='/signup'>
                     <Paragraph medium lessMarginTop primaryLight className="text-center pt-4 pb-4"> Unete Ahora</Paragraph>
                     </Link>

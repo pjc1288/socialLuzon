@@ -18,7 +18,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
             <meta property="og:title" content={`Comparte difisión | ${APP_NAME}`} />
             <meta
                 property="og:description"
-                content="Programming blogs and tutorials on react node next vue php laravel and web developoment"
+                content="Compartir Difusión"
             />
         </Head>
     );
@@ -97,7 +97,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
                         <header>
                             <div className="col-md-12 pt-3">
                                 <h1 className="display-4 font-weight-bold text-center">
-                                    Programming blogs and tutorials
+                                    Contenido A Difundir
                                 </h1>
                             </div>
                             <section>
@@ -120,7 +120,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
 Blogs.getInitialProps = () => {
     let skip = 0;
-    let limit = 2;
+    let limit = 4;
     return listBlogsWithCategoriesAndTags(skip, limit).then(data => {
         if (data.error) {
             console.log(data.error);

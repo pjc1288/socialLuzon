@@ -77,7 +77,7 @@ const CreateBlog = ({ router }) => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
             } else {
-                setValues({ ...values, title: '', error: '', success: `A new blog titled "${data.title}" is created` });
+                setValues({ ...values, title: '', error: '', success: `Contenido "${data.title}" fue creado` });
                 setBody('');
                 setCategories([]);
                 setTags([]);
@@ -192,6 +192,12 @@ const CreateBlog = ({ router }) => {
                     <Buttons type="submit" contained medium>
                         Publicar
                     </Buttons>
+                </div>
+                <br></br>
+                <div>
+                    <Link href='../../blogs'>
+                    <Buttons small> Ir a contenidos</Buttons>
+                    </Link>
                 </div>
             </form>
         );

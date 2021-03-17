@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import Router from 'next/router';
 import dynamic from 'next/dynamic';
 import { withRouter } from 'next/router';
 import { getCookie, isAuth } from '../actions/auth';
@@ -35,8 +36,8 @@ const BlogUpdate = ({ router }) => {
     useEffect(() => {
         setValues({ ...values, formData: new FormData() });
         initBlog();
-        initCategories();
-        initTags();
+/*         initCategories();
+        initTags(); */
     }, [router]);
 
     const initBlog = () => {
@@ -47,30 +48,30 @@ const BlogUpdate = ({ router }) => {
                 } else {
                     setValues({ ...values, title: data.title });
                     setBody(data.body);
-                    setCategoriesArray(data.categories);
-                    setTagsArray(data.tags);
+/*                     setCategoriesArray(data.categories);
+                    setTagsArray(data.tags); */
                 }
             });
         }
     };
 
-    const setCategoriesArray = blogCategories => {
+ /*    const setCategoriesArray = blogCategories => {
         let ca = [];
         blogCategories.map((c, i) => {
             ca.push(c._id);
         });
         setChecked(ca);
     };
-
-    const setTagsArray = blogTags => {
+ */
+/*     const setTagsArray = blogTags => {
         let ta = [];
         blogTags.map((t, i) => {
             ta.push(t._id);
         });
         setCheckedTag(ta);
-    };
+    }; */
 
-    const initCategories = () => {
+/*     const initCategories = () => {
         getCategories().then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
@@ -78,9 +79,9 @@ const BlogUpdate = ({ router }) => {
                 setCategories(data);
             }
         });
-    };
+    }; */
 
-    const initTags = () => {
+ /*    const initTags = () => {
         getTags().then(data => {
             if (data.error) {
                 setValues({ ...values, error: data.error });
@@ -88,7 +89,7 @@ const BlogUpdate = ({ router }) => {
                 setTags(data);
             }
         });
-    };
+    }; */
 
     const handleToggle = c => () => {
         setValues({ ...values, error: '' });
