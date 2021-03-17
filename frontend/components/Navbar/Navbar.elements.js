@@ -4,13 +4,16 @@ import {colors} from '../../styles/globalStyles'
 
 
 export const Nav = styled.nav`
-
+background-color: ${colors.white};
   width: 100%;
   height: 80px;
   border-bottom: 2px solid #f1f1f1;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  top:0;
+  z-index:300;
   .logo {
     color: ${colors.primary};
     padding: 30px 0;

@@ -23,7 +23,7 @@ const Navbar = () => {
     </div>
       <Burger />
     </Nav>
-    <Search>Busqueda</Search>
+    {/* <Search>Busqueda</Search> */}
     </>
   )
 }
