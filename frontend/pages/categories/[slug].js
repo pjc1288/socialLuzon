@@ -37,6 +37,7 @@ const Category = ({ category, blogs }) => {
         <>
 
                 <main>
+
                 <section  style={{margin:'120px 20px 0 20px'}}>
                             <Carousel breakPoints={breakPoints}>
                             <Link href='/categories/eventos'><Item>Eventos</Item></Link>
