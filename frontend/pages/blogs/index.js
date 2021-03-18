@@ -5,9 +5,37 @@ import { withRouter } from 'next/router';
 import { listBlogsWithCategoriesAndTags } from '../../components/actions/blog';
 import Card from '../../components/blog/Card';
 import { APP_NAME} from '../../config';
+import Carousel, {type, onClick,} from "react-elastic-carousel";
+import {colors} from '../../styles/globalStyles'
+import styled from 'styled-components';
 
+const Item= styled.div`
+display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  border-bottom: 5px solid ${colors.secondaryLight};
+  background-color: transparent;
+  color: ${colors.black};
+  margin: 15px;
+  font-size: 1em;
+`;
+
+
+
+const breakPoints = [
+    { width: 1, itemsToShow: 2 },
+    { width: 550, itemsToShow: 2, itemsToScroll: 2 },
+    { width: 768, itemsToShow: 3 },
+    { width: 1200, itemsToShow: 4 }
+  ];
 
 const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, router }) => {
+
+
+
+
     const head = () => (
         <Head>
             <title>Click Luzon| {APP_NAME}</title>
@@ -64,21 +92,7 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         });
     };
 
-    const showAllCategories = () => {
-        return categories.map((c, i) => (
-            <Link href={`/categories/${c.slug}`} key={i}>
-                <a className="btn btn-primary mr-1 ml-1 mt-3">{c.name}</a>
-            </Link>
-        ));
-    };
 
-    const showAllTags = () => {
-        return tags.map((t, i) => (
-            <Link href={`/tags/${t.slug}`} key={i}>
-                <a className="btn btn-outline-primary mr-1 ml-1 mt-3">{t.name}</a>
-            </Link>
-        ));
-    };
 
     const showLoadedBlogs = () => {
         return loadedBlogs.map((blog, i) => (
@@ -90,25 +104,18 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
 
     return (
         <>
-            {head()}
-           
+
                 <main>
-                    <div className="container-fluid">
-                        <header>
-                            <div className="col-md-12 pt-3">
-                                <h1 className="display-4 font-weight-bold text-center">
-                                    Contenido A Difundir
-                                </h1>
-                            </div>
-                            <section>
-                                <div className="pb-5 text-center">
-                                    {showAllCategories()}
-                                    <br />
-                                    {showAllTags()}
-                                </div>
+                            <section  style={{margin:'120px 20px 0 20px'}}>
+                            <Carousel breakPoints={breakPoints}>
+                            <Link href='/categories/eventos'><Item>Eventos</Item></Link>
+                            <Link href='/categories/noticias'><Item>Noticias</Item></Link>
+                            <Link href='/categories/fotos'><Item>Fotos</Item></Link>
+                            <Link href='/categories/investigaciones'><Item>Investigación</Item></Link>
+                            <Link href='/categories/proyectos'><Item>Proyectos</Item></Link>
+                            </Carousel>
                             </section>
-                        </header>
-                    </div>
+
                     <div className="container-fluid">{showAllBlogs()}</div>
                     <div className="container-fluid">{showLoadedBlogs()}</div>
                     <div className="text-center pt-5 pb-5">{loadMoreButton()}</div>
