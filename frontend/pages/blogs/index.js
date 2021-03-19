@@ -6,7 +6,7 @@ import { listBlogsWithCategoriesAndTags } from '../../components/actions/blog';
 import Card from '../../components/blog/Card';
 import { APP_NAME} from '../../config';
 import Carousel, {type, onClick,} from "react-elastic-carousel";
-import {colors} from '../../styles/globalStyles'
+import {Buttons, colors} from '../../styles/globalStyles'
 import styled from 'styled-components';
 
 const Item= styled.div`
@@ -73,9 +73,9 @@ const Blogs = ({ blogs, categories, tags, totalBlogs, blogsLimit, blogSkip, rout
         return (
             size > 0 &&
             size >= limit && (
-                <button onClick={loadMore} className="btn btn-outline-primary btn-lg">
-                    Load mmore
-                </button>
+                <Buttons contained small onClick={loadMore}>
+                    Más Contenido
+                </Buttons>
             )
         );
     };
