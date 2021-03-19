@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { signup, isAuth } from '../actions/auth';
 import Router from 'next/router';
+import { Buttons, InputForm, Paragraph, Title } from '../../styles/globalStyles';
 
 const SignupComponent = () => {
     const [values, setValues] = useState({
@@ -53,38 +54,41 @@ const SignupComponent = () => {
 
     const signupForm = () => {
         return (
+            <>
+            <Title big lessMargin className="text-center pt-4 pb-4"> Únete a Nosotros</Title>
             <form onSubmit={handleSubmit}>
                 <div>
-                    <input
+                    <InputForm
                         value={name}
                         onChange={handleChange('name')}
                         type="text"
-                        placeholder="Type your name"
-                    />
+                        placeholder="Nombre"></InputForm>
+                    
                 </div>
 
                 <div>
-                    <input
+                    <InputForm
                         value={email}
                         onChange={handleChange('email')}
                         type="email"
-                        placeholder="Type your email"
-                    />
+                        placeholder="Email"></InputForm>
+                    
                 </div>
 
                 <div>
-                    <input
+                    <InputForm
                         value={password}
                         onChange={handleChange('password')}
                         type="password"
-                        placeholder="Type your password"
-                    />
+                        placeholder="Password"></InputForm>
+                    
                 </div>
 
                 <div>
-                    <button>Signup</button>
+                <Buttons style={{margin:'50px'}} medium contained>Unirse</Buttons>
                 </div>
             </form>
+            </>
         );
     };
 

@@ -69,6 +69,7 @@ export const Paragraph = styled.p`
     font-size: 0.8em;
     line-height: 25px;
     color: ${colors.black};
+    outline:'none'
 
     ${props => props.medium && css`
     font-size: 0.8em;
@@ -216,6 +217,7 @@ export const InputForm = styled.input`
   border: 1px solid #ACB5BD;
 	border-radius: 10px;
   width: 50%;
+  height: 20px;
   display: block;
   transition: all 0.3s;
   @media screen and (max-width: 960px) {
